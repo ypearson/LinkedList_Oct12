@@ -8,7 +8,7 @@ OBJCOPY   := $(TARGET_PREFIX)objcopy
 SIZE      := $(TARGET_PREFIX)size
 
 TOP=$(shell pwd)
-TARGET=run
+TARGET=executable.elf
 C_SOURCE_FILES +=  	main.c         \
 					linkedlist.c   \
 
@@ -29,7 +29,6 @@ all: clean $(TARGET)
 
 $(TARGET): $(OBJ)
 	$(CC) $(LDFLAGS) $^ -o $@
-	./$(TARGET)
 
 clean:
 	@find $(TOP) -type f -name "*.o"  -delete
