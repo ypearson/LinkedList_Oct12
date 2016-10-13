@@ -3,12 +3,12 @@
 
 #include "linkedlist.h"
 
-int main(int argc, char **argv)
+void test1(void)
 {
-
     int i;
     uint32_t size;
     uint32_t data;
+    uint8_t found;
 
     node_t *head_ref = NULL;
 
@@ -62,6 +62,34 @@ int main(int argc, char **argv)
     printf("data from the front = %lu\n", (long unsigned int) data );
     ll_print (& head_ref);
 
+
+    if(ll_remove_by_value  (& head_ref, 50, &found ) < 0)
+    {
+        printf("%s\n", "ll_remove_by_value error");
+    }
+    printf("Found = %u\n", found );
+    ll_print (& head_ref);
+
+    if(ll_remove_by_value  (& head_ref, 12, &found ) < 0)
+    {
+        printf("%s\n", "ll_remove_by_value error");
+    }
+    printf("Found = %u\n", found );
+    ll_print (& head_ref);
+
+    if(ll_remove_by_value  (& head_ref, 150, &found ) < 0)
+    {
+        printf("%s\n", "ll_remove_by_value error");
+    }
+    printf("Found = %u\n", found );
+    ll_print (& head_ref);
+
+}
+
+int main(int argc, char **argv)
+{
+
+    test1();
 
     printf("%s\n", "done!");
     return 0;

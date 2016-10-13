@@ -21,7 +21,8 @@ int ll_add_to_back      (head_t ** ref, uint32_t  data);
 int ll_add_to_front     (head_t ** ref, uint32_t  data);
 int ll_remove_from_back (head_t ** ref, uint32_t *data);
 int ll_remove_from_front(head_t ** ref, uint32_t *data);
-int ll_remove_by_value  (head_t ** ref, uint32_t *data);
+int ll_remove_by_value  (head_t ** ref, uint32_t data, uint8_t *found);
+int ll_remove_by_fnc    (head_t ** ref, uint32_t *data, uint8_t *(fnc)(void) );
 int ll_destroy          (head_t ** ref);
 int ll_print            (head_t ** ref);
 
