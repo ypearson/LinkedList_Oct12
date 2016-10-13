@@ -6,7 +6,6 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-
 typedef struct node_s
 {
     uint32_t       data;
@@ -16,29 +15,13 @@ typedef struct node_s
 
 typedef node_t head_t;
 
-typedef struct
-{
-    uint32_t size;
-    head_t *head;
-} linked_list_t;
-
-
-int ll_init       (head_t ** ref, uint32_t data);
-int ll_size       (head_t ** ref, uint32_t data);
-int ll_add_to_back(head_t ** ref, uint32_t data);
-int ll_print      (head_t ** ref);
-
-
-
-/*
-
-init
-size
-add to back
-add to front
-remove from back
-remove from front
-destroy
-*/
+int ll_init           (head_t ** ref, uint32_t  data);
+int ll_size           (head_t ** ref, uint32_t *size);
+int ll_add_to_back    (head_t ** ref, uint32_t  data);
+int ll_add_to_front   (head_t ** ref, uint32_t  data);
+int ll_remove_to_back (head_t ** ref, uint32_t *data);
+int ll_remove_to_front(head_t ** ref, uint32_t *data);
+int ll_destroy        (head_t ** ref);
+int ll_print          (head_t ** ref);
 
 #endif

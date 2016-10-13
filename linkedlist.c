@@ -17,7 +17,7 @@ int ll_init(head_t ** ref, uint32_t data)
     return 0;
 }
 
-int ll_size (head_t ** ref, uint32_t data)
+int ll_size (head_t ** ref, uint32_t *size)
 {
 
 }
@@ -34,7 +34,7 @@ int ll_add_to_back(head_t ** ref, uint32_t data)
     }
     ll_ref->next = (node_t*)malloc(sizeof(node_t));
     ll_ref = ll_ref->next;
-    ll_ref->data;
+    ll_ref->data = data;
     ll_ref->next = NULL;
     return 0;
 }
@@ -48,6 +48,6 @@ int ll_print(head_t ** ref)
         printf("--->%lu",(unsigned long int)ll_ref->data );
         ll_ref = ll_ref->next;
     } while(ll_ref);
-    printf("--->null\n");
+    printf("--->NULL\n");
     return 0;
 }
