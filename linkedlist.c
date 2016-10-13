@@ -56,6 +56,41 @@ int ll_add_to_front(head_t ** ref, uint32_t  data)
     return 0;
 }
 
+int ll_remove_from_back (head_t ** ref, uint32_t *data)
+{
+    node_t *node_ref = *ref;
+    node_t *previous_node_ref = *ref;
+
+    if(!node_ref)
+        return -1;
+
+    while(node_ref->next)
+    {
+        previous_node_ref = node_ref;
+        node_ref = node_ref->next;
+    }
+    previous_node_ref->next = 0;
+    *data = node_ref->data;
+    free(node_ref);
+    return 0;
+}
+
+int ll_remove_from_front(head_t ** ref, uint32_t *data)
+{
+    head_t *head_ref = *ref;
+
+    if(!head_ref)
+        return -1;
+    *data = head_ref->data;
+    *ref = head_ref->next;
+    free(head_ref);
+}
+
+int ll_remove_by_value  (head_t ** ref, uint32_t *data)
+{
+
+}
+
 int ll_print(head_t ** ref)
 {
     node_t *ll_ref = *ref;

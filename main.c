@@ -8,6 +8,7 @@ int main(int argc, char **argv)
 
     int i;
     uint32_t size;
+    uint32_t data;
 
     node_t *head_ref = NULL;
 
@@ -45,6 +46,22 @@ int main(int argc, char **argv)
         printf("%s\n", "ll_size error");
     }
     printf("Linked List Size = %lu\n", (long unsigned int) size );
+
+    if(ll_remove_from_back (& head_ref, & data) < 0)
+    {
+        printf("%s\n", "ll_remove_from_back error");
+    }
+    printf("data from the back = %lu\n", (long unsigned int) data );
+    ll_print (& head_ref);
+
+
+    if(ll_remove_from_front (& head_ref, & data) < 0)
+    {
+        printf("%s\n", "ll_remove_from_front error");
+    }
+    printf("data from the front = %lu\n", (long unsigned int) data );
+    ll_print (& head_ref);
+
 
     printf("%s\n", "done!");
     return 0;
