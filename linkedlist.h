@@ -15,13 +15,14 @@ typedef struct node_s
 
 typedef node_t head_t;
 
-int ll_init           (head_t ** ref, uint32_t  data);
-int ll_size           (head_t ** ref, uint32_t *size);
-int ll_add_to_back    (head_t ** ref, uint32_t  data);
-int ll_add_to_front   (head_t ** ref, uint32_t  data);
-int ll_remove_to_back (head_t ** ref, uint32_t *data);
-int ll_remove_to_front(head_t ** ref, uint32_t *data);
-int ll_destroy        (head_t ** ref);
-int ll_print          (head_t ** ref);
+int ll_init             (head_t ** ref, uint32_t  data);
+int ll_size             (head_t ** ref, uint32_t *size);
+int ll_add_to_back      (head_t ** ref, uint32_t  data);
+int ll_add_to_front     (head_t ** ref, uint32_t  data);
+int ll_remove_from_back (head_t ** ref, uint32_t *data);
+int ll_remove_from_front(head_t ** ref, uint32_t *data);
+int ll_remove_by_value  (head_t ** ref, uint32_t *data);
+int ll_destroy          (head_t ** ref);
+int ll_print            (head_t ** ref);
 
 #endif

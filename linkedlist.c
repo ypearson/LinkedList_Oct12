@@ -28,7 +28,6 @@ int ll_size (head_t ** ref, uint32_t *size)
     return 0;
 }
 
-
 int ll_add_to_back(head_t ** ref, uint32_t data)
 {
     node_t *ll_ref = *ref;
@@ -44,6 +43,19 @@ int ll_add_to_back(head_t ** ref, uint32_t data)
     ll_ref->next = NULL;
     return 0;
 }
+
+int ll_add_to_front(head_t ** ref, uint32_t  data)
+{
+    node_t *node_ref;
+    if(!*ref)
+        return -1;
+    node_ref = (node_t*)malloc(sizeof(node_t));
+    node_ref->next = *ref;
+    node_ref->data = data;
+    *ref = node_ref;
+    return 0;
+}
+
 int ll_print(head_t ** ref)
 {
     node_t *ll_ref = *ref;

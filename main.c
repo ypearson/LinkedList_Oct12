@@ -31,6 +31,15 @@ int main(int argc, char **argv)
     }
     printf("Linked List Size = %lu\n", (long unsigned int) size );
 
+    for(i = 1; i <= 5; i++)
+    {
+        if(ll_add_to_front(& head_ref, 3*i) < 0)
+        {
+            printf("%s\n","ll_add_to_front() error" );
+        }
+        ll_print (& head_ref);
+    }
+
     printf("%s\n", "done!");
     return 0;
 
