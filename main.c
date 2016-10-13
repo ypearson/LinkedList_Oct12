@@ -3,6 +3,16 @@
 
 #include "linkedlist.h"
 
+uint8_t even(uint32_t data)
+{
+    return (data & 0x1UL) ? 0 : 1;
+}
+
+uint8_t odd(uint32_t data)
+{
+    return (data & 0x1UL) ? 1 : 0;
+}
+
 void test1(void)
 {
     int i;

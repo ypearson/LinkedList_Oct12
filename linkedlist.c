@@ -100,8 +100,8 @@ int ll_remove_by_value  (head_t ** ref, uint32_t data, uint8_t *found)
             {
                 if(*ref == node_ref)   // Last one and first one
                 {
-                    free(node_ref);
                     *ref = 0;
+                    free(node_ref);
                 }
                 else                   // Last one but not the first one
                 {
@@ -125,6 +125,49 @@ int ll_remove_by_value  (head_t ** ref, uint32_t data, uint8_t *found)
         node_ref = node_ref->next;
     }
 }
+
+int ll_remove_by_fnc(head_t ** ref, uint32_t *data, uint8_t *found, uint8_t *(fnc)(uint32_t) )
+{
+    node_t *node_ref = *ref;
+    node_t *previous_node_ref = *ref;
+    *found = 0;
+    if(!node_ref)
+        return -1;
+    while(node_ref)
+    {
+        if( fnc(node_ref->data) )
+        {
+            *found = 1;
+            if(!node_ref->next)        // Last one
+            {
+                if(*ref == node_ref)   // Last one and first one
+                {
+                    *ref = 0;
+                    free(node_ref);
+                }
+                else                   // Last one but not the first one
+                {
+                    previous_node_ref->next = 0;
+                    free(node_ref);
+                }
+            }
+            else if(*ref == node_ref)  // First one but not the last one
+            {
+                *ref = node_ref->next;
+                free(node_ref);
+            }
+            else                       // Somewhere in the middle
+            {
+                previous_node_ref->next = node_ref->next;
+                free(node_ref);
+            }
+            break;
+        }
+        previous_node_ref = node_ref;
+        node_ref = node_ref->next;
+    }
+}
+
 
 int ll_print(head_t ** ref)
 {
