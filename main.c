@@ -40,6 +40,12 @@ int main(int argc, char **argv)
         ll_print (& head_ref);
     }
 
+    if(ll_size(&head_ref, &size) < 0)
+    {
+        printf("%s\n", "ll_size error");
+    }
+    printf("Linked List Size = %lu\n", (long unsigned int) size );
+
     printf("%s\n", "done!");
     return 0;
 
