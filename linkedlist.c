@@ -1,10 +1,5 @@
 #include "linkedlist.h"
 
-static inline int check_head(head_t *hptr)
-{
-
-}
-
 int ll_init(head_t ** ref, uint32_t data)
 {
     head_t *head_ref;
@@ -19,7 +14,18 @@ int ll_init(head_t ** ref, uint32_t data)
 
 int ll_size (head_t ** ref, uint32_t *size)
 {
+    uint32_t cnt = 0;
+    node_t *ll_ref = *ref;
+    if(!ll_ref)
+        return -1;
+    do
+    {
+        cnt++;
+        ll_ref = ll_ref->next;
+    } while(ll_ref);
 
+    *size = --cnt;
+    return 0;
 }
 
 

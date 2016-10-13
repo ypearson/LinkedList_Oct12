@@ -7,6 +7,8 @@ int main(int argc, char **argv)
 {
 
     int i;
+    uint32_t size;
+
     node_t *head_ref = NULL;
 
     if(ll_init(& head_ref, 0) < 0)
@@ -23,6 +25,11 @@ int main(int argc, char **argv)
             printf("%s\n","ll_add_to_back() error" );
         }
     }
+    if(ll_size(&head_ref, &size) < 0)
+    {
+        printf("%s\n", "ll_size error");
+    }
+    printf("Linked List Size = %lu\n", (long unsigned int) size );
 
     printf("%s\n", "done!");
     return 0;
